@@ -43,3 +43,8 @@ jobs:
 
       - name: Rodar testes
         run: pytest
+
+      - name: Verificar banco e tabela
+        run: |
+          mysql -h 127.0.0.1 -u root -proot -e "SHOW DATABASES;"
+          mysql -h 127.0.0.1 -u root -proot -e "USE codigos_db; SHOW TABLES;"
