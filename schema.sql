@@ -1,8 +1,8 @@
-CREATE DATABASE codigos_db;
+CREATE DATABASE IF NOT EXISTS codigos_db;
 
 USE codigos_db;
 
-CREATE TABLE codigos_sequenciais (
+CREATE TABLE IF NOT EXISTS codigos_sequenciais (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codigo VARCHAR(10) UNIQUE,
     sec INT,
