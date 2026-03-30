@@ -42,7 +42,7 @@ jobs:
           mysql -h 127.0.0.1 -u root -proot codigos_db < schema.sql
 
       - name: Rodar testes
-        run: pytest
+        run: pytest -v
 
       - name: Verificar banco e tabela
         run: |
