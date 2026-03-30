@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,10 +44,10 @@ jobs:
         run: |
           mysql -h 127.0.0.1 -u root -proot codigos_db < schema.sql
 
-      - name: Rodar testes
-        run: pytest -v
-
       - name: Verificar banco e tabela
         run: |
           mysql -h 127.0.0.1 -u root -proot -e "SHOW DATABASES;"
           mysql -h 127.0.0.1 -u root -proot -e "USE codigos_db; SHOW TABLES;"
+
+      - name: Rodar testes
+        run: pytest -v -s

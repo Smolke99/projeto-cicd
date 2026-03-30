@@ -2,6 +2,7 @@ from gerador_codigo import gerar_codigo
 
 def test_primeiro_codigo():
     codigo = gerar_codigo("C", "A", "BR")
+    print("Código gerado:", codigo)
     assert codigo == "BRC0001A"
 
 def test_incremento():
@@ -16,7 +17,3 @@ def test_erro():
     except ValueError:
         assert True
 
-def test_primeiro_codigo():
-    codigo = gerar_codigo("C", "A", "BR")
-    print("Código gerado:", codigo)
-    assert codigo == "BRC0001A"
