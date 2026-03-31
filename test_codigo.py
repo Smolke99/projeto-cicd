@@ -17,3 +17,11 @@ def test_erro():
     except ValueError:
         assert True
 
+    print("\n📊 CONTEÚDO DA TABELA:")
+    for linha in resultados:
+        print(linha)
+
+    cursor.close()
+    conn.close()
+
+    assert True
