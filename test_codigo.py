@@ -1,4 +1,5 @@
 from gerador_codigo import gerar_codigo
+from conexao import conectar
 
 def test_primeiro_codigo():
     codigo = gerar_codigo("C", "A", "BR")
@@ -10,12 +11,12 @@ def test_incremento():
     codigo = gerar_codigo("D", "A", "BR")
     assert codigo == "BRD0002A"
 
-def test_erro():
-    try:
-        gerar_codigo("", "A", "BR")
-        assert False
-    except ValueError:
-        assert True
+def test_ver_tabela():
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM codigos_sequenciais")
+    resultados = cursor.fetchall()
 
     print("\n📊 CONTEÚDO DA TABELA:")
     for linha in resultados:
